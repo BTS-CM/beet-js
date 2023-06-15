@@ -391,7 +391,13 @@ class BeetConnection {
      * Inject an external blockchain library into Beet-JS
      */
     inject(pointOfInjection, options = {sign: true, broadcast: true}) {
-        if (this.identity.chain == "BTS" || this.identity.chain == "BTS_TEST" || this.identity.chain == "TUSC") {
+        if (
+            this.identity.chain == "BTS"
+            || this.identity.chain == "BTS_TEST"
+            || this.identity.chain == "TUSC"
+            || this.identity.chain == "EOS"
+            || this.identity.chain == "TLOS"
+          ) {
             if (!!pointOfInjection.prototype && !!pointOfInjection.prototype.get_type_operation) {
                 // transaction builder
                 return this.injectTransactionBuilder(pointOfInjection, options);
